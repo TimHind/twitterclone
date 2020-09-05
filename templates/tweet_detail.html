@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter Clone 🐦</title>
+</head>
+<body>
+    <a href="/">Home</a>
+    {% if not tweet %}
+        <h1>the tweet you're looking for isn't here at the moment</h1>
+    {% else %}
+        <h4>User: <a href="/{{ tweet.author }}/">@{{ tweet.author.username }}</a></h4>
+        <p>Description: {{ tweet.description }}</p>
+        <p>Date/Time - {{ tweet.time }}</p>
+    {% endif %}
+
+</body>
+</html>

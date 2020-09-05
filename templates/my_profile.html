@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/">Home</a>
+    <h1>{{request.user}}</h1>
+    <p>Following: {{request.user.following.count }}</p>
+    <p>Tweets: {{my_tweets.count}}</p>
+    {% for post in my_tweets %}
+        <li>
+        <a href="/{{ post.author }}/">@{{ post.author }}</a> - <a href="/tweet/{{post.id}}/">{{ post.time }}</a>
+        
+        </li>
+    <pre>
+    <b>{{ post.description }}</b>
+    </pre>
+
+    {% endfor %}
+</body>
+</html>

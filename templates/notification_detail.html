@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title>
+</head>
+<body>
+    <a href="/">Home</a>
+    {% for notification in new_notifications %}
+    <li>
+        <a href="/{{notification.author}}/">@{{notification.author}}</a> - <a href="/tweet/{{notification.id}}/">{{ notification.time }}</a>
+    </li>
+    <pre>
+    <b>{{ notification.description }}</b>
+    </pre>
+    {% endfor %}
+</body>
+</html>

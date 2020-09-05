@@ -1,0 +1,32 @@
+<a href="/">Home</a>
+<div class="container">
+    {% if not user %}
+    <h1>the user you're looking for isn't here at the moment</h1>
+    {% else %}
+    <h2>{{ user.username }}</h2>
+    <p>Following: {{ count }}</p>
+    <p>Tweets: {{ tweet_count }}</p>
+    <form action="{% url 'follow' user.pk %}" method="POST">
+        {% csrf_token %}
+        <button type="submit", name="user_username", value="{{ user.id }}">Follow!</button>
+    </form>
+    <form action="{% url 'unfollow' user.pk %}" method="POST">
+        {% csrf_token %}
+        <button type="submit", name="user_username", value="{{ user.id }}">Unfollow!</button>
+    </form>
+    {% for post in tweets %}
+    {% if post.author == user %}
+        <li>
+        <a href="/{{ post.author }}/">@{{ post.author }}</a> - <a href="/tweet/{{post.id}}/">{{ post.time }}</a>
+        
+        </li>
+    <pre>
+    <b>{{ post.description }}</b>
+    </pre>
+    {% endif %}
+    {% endfor %}
+    
+    {% endif %}
+    </ul>
+    
+</div>
