@@ -5,10 +5,16 @@ from tweet.forms import TweetForm
 from twitteruser.models import MyUser
 from notification.models import Notification
 import re
+from django.views.generic.base import View
 
 def tweet_detail(request, post_id):
     my_tweet = Tweet.objects.filter(id=post_id).first()
     return render(request, "tweet_detail.html", {"tweet": my_tweet})
+
+class TweetDetail(View):
+    def get(self, request, post_id):
+        my_tweet = Tweet.objects.filter(id=post_id).first()
+        return render(request, "tweet_detail.html", {"tweet": my_tweet})
 
 def tweet_form_view(request):
     if request.method == "POST":

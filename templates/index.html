@@ -6,13 +6,13 @@
         <title>Twitter Clone 🐦</title>
     </head>
     <body>
-    <a href="/">Home</a> <a href="notifications/">Notifications</a>  <a href="/myprofile/">MyProfile</a> <a href="/newtweet/">Tweet!</a>  <a href="logout/">Logout</a>
+    <a href="/">Home</a> <a href="notifications/">Notifications</a>  <a href="/altmyprofile/">MyProfile</a> <a href="/newtweet/">Tweet!</a>  <a href="logout/">Logout</a>
     <h1>Feed</h1>
     <ul>
     {% for post in my_tweets %}
     
         <li>
-        <a href="/{{ post.author }}/">@{{ post.author }}</a> - <a href="/tweet/{{post.id}}/">{{ post.time }}</a>
+        <a href="/{{ post.author }}/">@{{ post.author }}</a> - <a href="alttweet/{{post.id}}/">{{ post.time }}</a>
         </li>
     <pre>
     <b>{{ post.description }}</b>
